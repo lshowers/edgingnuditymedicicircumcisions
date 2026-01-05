@@ -8,10 +8,10 @@ EdgenTweaks: https://gitlab.com/meduh/edgentweaks (Can't find original author)
 Edgenuity-Skipper: https://github.com/webmsgr/edgenuity-skipper  
 Edgenuity Addons: https://github.com/TabberAnimates/edgenuity_addons  
   
-Honorable mentions: 
+Honorable mentions:  
 SheldonBot: https://github.com/kathool/SHELDONBOT  
 Just too much junk added into it that doesn't work, particularly the auto-answer thing  
-Videowatcher: https://github.com/sassysassysalad/edgenuity
-Haven't tried it yet, we'll see.
-EdgenTweaks (again): https://gitlab.com/iceyhot696969/edgentweaks
-Different author, EdgenTweaks is public domain and I have no idea who wrote it.
+Videowatcher: https://github.com/sassysassysalad/edgenuity  
+Haven't tried it yet, we'll see.  
+EdgenTweaks (again): https://gitlab.com/iceyhot696969/edgentweaks  
+Different author, EdgenTweaks is public domain and I have no idea who wrote it.  
