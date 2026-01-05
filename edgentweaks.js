@@ -126,7 +126,8 @@ setTimeout( //2 sec delay to load before trying to run
             if (override == 2) {
                 window.configbutton.innerText = "Search Selection Config"
                 $("#tweaksmenu").append(window.entry);
-            } else return window.entry;
+            } 
+            else return window.entry;
         }
 
         function dragElement(elmnt) {
@@ -286,46 +287,46 @@ setTimeout( //2 sec delay to load before trying to run
                 document.getElementById("tweaksmenu").style.visibility = "hidden"
             }
         })
-        buildMenuButton("Search Selection", "googlebutton", function() {
-            var result = window.getSelection().toString();
-            if ($("#CloseSearch").is(":checked")) {
-                window.openedWindows.forEach(function(window) {
-                    if (window != null) {
-                        window.close();
-                    }
-                    window = null;
-                })
-            }
-            if (result == "") {
+        // buildMenuButton("Search Selection", "googlebutton", function() {
+        //     var result = window.getSelection().toString();
+        //     if ($("#CloseSearch").is(":checked")) {
+        //         window.openedWindows.forEach(function(window) {
+        //             if (window != null) {
+        //                 window.close();
+        //             }
+        //             window = null;
+        //         })
+        //     }
+        //     if (result == "") {
 
-                result = document.getElementById("stageFrame").contentWindow.getSelection().toString()
-            }
-            if (result == "") {
-                result = document.getElementById("stageFrame").contentWindow.document.getElementById("iFramePreview").contentWindow.getSelection().toString()
-            }
-            if (result != "") {
-                $("#userconsole").prepend("<li>Searching your selection ");
-                if ($("#googlesearch").is(":checked")) window.openedWindows[0] = window.open("https://www.google.com/search?q=" + result);
-                if ($("#brainlysearch").is(":checked")) window.openedWindows[1] = window.open("https://brainly.com/app/ask?q=" + result);
-                if ($("#wolframsearch").is(":checked")) window.openedWindows[2] = window.open("https://www.wolframalpha.com/input/?i=" + result);
-                if ($("#customsearch").is(":checked")) window.openedWindows[3] = window.open("https://google.com/search?q=site:" + $("#css").val() + " " + result, )
-                localStorage.setItem("csskey", $("#css").val())
-            } else $("#userconsole").prepend("<li>There's nothing selected! ");
-        })
-        buildMenuButton("Search Config", "scbutton", function() {
-            if (document.getElementById("searchconfig").style.visibility == "hidden") { //visiblitly handler for configpane button
-                document.getElementById("searchconfig").style.visibility = "visible"
-            } else {
-                document.getElementById("searchconfig").style.visibility = "hidden"
-            }
-        }, "googlebutton")
-        $("#googlebutton").on("mouseenter", function() {
-            $("#scbutton").fadeIn()
-        }) //Hide / Show search config
-        $("#googlebutton").on('mouseleave', function() {
-            $("#scbutton").fadeOut()
-        })
-        $("#scbutton").hide()
+        //         result = document.getElementById("stageFrame").contentWindow.getSelection().toString()
+        //     }
+        //     if (result == "") {
+        //         result = document.getElementById("stageFrame").contentWindow.document.getElementById("iFramePreview").contentWindow.getSelection().toString()
+        //     }
+        //     if (result != "") {
+        //         $("#userconsole").prepend("<li>Searching your selection ");
+        //         if ($("#googlesearch").is(":checked")) window.openedWindows[0] = window.open("https://www.google.com/search?q=" + result);
+        //         if ($("#brainlysearch").is(":checked")) window.openedWindows[1] = window.open("https://brainly.com/app/ask?q=" + result);
+        //         if ($("#wolframsearch").is(":checked")) window.openedWindows[2] = window.open("https://www.wolframalpha.com/input/?i=" + result);
+        //         if ($("#customsearch").is(":checked")) window.openedWindows[3] = window.open("https://google.com/search?q=site:" + $("#css").val() + " " + result, )
+        //         localStorage.setItem("csskey", $("#css").val())
+        //     } else $("#userconsole").prepend("<li>There's nothing selected! ");
+        // })
+        // buildMenuButton("Search Config", "scbutton", function() {
+        //     if (document.getElementById("searchconfig").style.visibility == "hidden") { //visiblitly handler for configpane button
+        //         document.getElementById("searchconfig").style.visibility = "visible"
+        //     } else {
+        //         document.getElementById("searchconfig").style.visibility = "hidden"
+        //     }
+        // }, "googlebutton")
+        // $("#googlebutton").on("mouseenter", function() {
+        //     $("#scbutton").fadeIn()
+        // }) //Hide / Show search config
+        // $("#googlebutton").on('mouseleave', function() {
+        //     $("#scbutton").fadeOut()
+        // })
+        // $("#scbutton").hide()
         buildMenuButton("Guess this", "guessbutton", function() {
             if (confirm("are you sure?")) { //submit if confirmed
                 try {
