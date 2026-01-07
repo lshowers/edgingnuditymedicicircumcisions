@@ -458,7 +458,7 @@ function skipIntro() {
 function GuessPractice() {
     //Hide/Show button
     //Cancels guess if assignment , class names are often misformatted( .trim())
-    if ($("#activity-title").text().trim() == "Assignment" {
+    if ($("#activity-title").text().trim() == "Assignment") {
         output += ("Guess Practice (disabled), ")
         return;
     }
