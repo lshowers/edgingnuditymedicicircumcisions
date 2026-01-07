@@ -458,18 +458,26 @@ function skipIntro() {
 function GuessPractice() {
     //Hide/Show button
     //Cancels guess if assignment , class names are often misformatted( .trim())
-    if ($("#activity-title").text().trim() == "Assignment" && !document.getElementById("guessassignments").checked) {
+    if ($("#activity-title").text().trim() == "Assignment" {
         output += ("Guess Practice (disabled), ")
         return;
     }
     //Guesser (THIS IS INDEDED TO BE RESTRICTIVE, JUST LEAVE IT.)
     if (["Practice", "Instruction", "Assignment", "Warm-Up", "Summary"].includes(document.getElementById("activity-title").innerText)) {
       
-            output += ("Guess Practice, ")
-            window.options = window.frames[0].frames[0].document.getElementsByClassName("answer-choice-button"); //find options
-            console.log(window.options.tostring())
-            window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one
-	}}
+            try {
+                    window.options = window.frames[0].frames[0].document.getElementsByClassName("answer-choice-button"); //find options
+                    window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one
+                } catch (TypeError) {}
+                window.frames[0].API.Frame.check();
+                window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one again
+                $("span#btnCheck").click(); //dont think it works
+	    try {
+        document.getElementsByClassName("footnav goRight")[0].click()
+    } catch (TypeError) {} //Advance to next !!!!assignment!!! not redundant
+    $("#stageFrame").contents().find(".FrameRight").click()
+          $("iframe").contents().find("#SubmitButton").click()
+	}
         //submitter
 //        try {
 //            $("#nextQuestion").click()
@@ -477,7 +485,6 @@ function GuessPractice() {
 //    } else {
 //        output += ("Guess Practice (not supported for  " + $("#activity-title").text() + "), ")
 //    }
-
 
 // Unhide Right Column
 function showColumn() {
