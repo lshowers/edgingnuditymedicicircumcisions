@@ -457,27 +457,36 @@ function skipIntro() {
 // Guess Practice
 function GuessPractice() {
     //Hide/Show button
-    //Cancels guess if assignment , class names are often misformatted( .trim())
-    if ($("#activity-title").text().trim() == "Assignment" && !document.getElementById("guessassignments").checked) {
-        output += ("Guess Practice (disabled), ")
-        return;
-    }
+//    //Cancels guess if assignment , class names are often misformatted( .trim())
+//    if ($("#activity-title").text().trim() == "Assignment" && !document.getElementById("guessassignments").checked) {
+//        output += ("Guess Practice (disabled), ")
+//        return;
+//    }
     //Guesser (THIS IS INDEDED TO BE RESTRICTIVE, JUST LEAVE IT.)
-    if (["Practice", "Instruction", "Assignment", "Warm-Up", "Summary"].includes(document.getElementById("activity-title").innerText)) {
+//    if (["Practice", "Instruction", "Assignment", "Warm-Up", "Summary"].includes(document.getElementById("activity-title").innerText)) {
       
-            output += ("Guess Practice, ")
-            window.options = window.frames[0].frames[0].document.getElementsByClassName("answer-choice-button"); //find options
-            console.log(window.options.tostring())
-            window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one
+//            output += ("Guess Practice, ")
+//            window.options = window.frames[0].frames[0].document.getElementsByClassName("answer-choice-button"); //find options
+//            console.log(window.options.tostring())
+//            window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one
     
         //submitter
-        try {
-            $("#nextQuestion").click()
-        } catch (TypeError) {}
-    } else {
-        output += ("Guess Practice (not supported for  " + $("#activity-title").text() + "), ")
-    }
-}
+//        try {
+//            $("#nextQuestion").click()
+//        } catch (TypeError) {}
+//    } else {
+//        output += ("Guess Practice (not supported for  " + $("#activity-title").text() + "), ")
+//    }
+//}
+                try {
+                    window.options = window.frames[0].frames[0].document.getElementsByClassName("answer-choice-button"); //find options
+                    window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one
+                } catch (TypeError) {}
+                window.frames[0].API.Frame.check();
+                window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one again
+                $("span#btnCheck").click(); //dont think it works
+    			}
+
 // Unhide Right Column
 function showColumn() {
     output += ("Show Example Response, ")
