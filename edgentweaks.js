@@ -477,7 +477,7 @@ function GuessPractice() {
 //    } else {
 //        output += ("Guess Practice (not supported for  " + $("#activity-title").text() + "), ")
 //    }
-//}
+}
 
 // Unhide Right Column
 function showColumn() {
