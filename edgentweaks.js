@@ -397,11 +397,9 @@ function autoadvance() {
     var increment = 0;
     if (["Unit Test", "Unit Test Review", "Quiz"].includes(x = $("#activity-title").text())) {
         if ($("#HardDisable").is(":checked")) {
-            $("#AutoAdvance").attr("checked", false)
             $("#userconsole").prepend("<li>Auto Advance hard disabled");
             return;
         } else if ($("#activity-status").text() != "Complete") {
-
             output += "Autoadvance (disabled for  " + x + "), ";
             return;
         }
@@ -411,36 +409,21 @@ function autoadvance() {
         return;
     }
     var x;
-    if ($("#aaNoSkip").is(":checked")) { //this really does not work well
+    //this really does not work well
         var temp = eval(x = $("#stageFrame").contents().find("#uid1_time").text().replace(/:/g,".").replace("/", '-')); ///e.g. 1:20 / 2:00 -> 1.20 - 2.00 = abs seconds left
         console.log(temp, x)
         if (temp < -.02 && temp != undefined && temp != 0 && $("#stageFrame").contents().find("#frame_video_controls").css("display") != "none") { //many condition cause videos sometime get stuck one second behind,
             output += "Autoadvance (NoSkip is enabled),  ";
             return;
-        }
     }
     increment++;
     //All other AA checks have succedded at this point.
-    if ($("#ASLAP").is(":checked")) {
-        console.log($("#ASLAPtext").value)
-
-
-
-                       }
-
-
-
-
-
-
-    try {
+           console.log($("#ASLAPtext").value)
+	    try {
         document.getElementsByClassName("footnav goRight")[0].click()
     } catch (TypeError) {} //Advance to next !!!!assignment!!! not redundant
     $("#stageFrame").contents().find(".FrameRight").click()
-    if ($("#aaASubmit").is(":checked")) {
-        $("iframe").contents().find("#SubmitButton").click()
-
-    }
+          $("iframe").contents().find("#SubmitButton").click()
     output += ("Autoadvance, ")
 }
 //Stealth Mode
