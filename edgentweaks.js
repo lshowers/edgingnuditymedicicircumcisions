@@ -328,7 +328,6 @@ setTimeout( //2 sec delay to load before trying to run
         // })
         // $("#scbutton").hide()
         buildMenuButton("Guess this", "guessbutton", function() {
-            {
                 try {
                     window.options = window.frames[0].frames[0].document.getElementsByClassName("answer-choice-button"); //find options
                     window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one
@@ -336,8 +335,7 @@ setTimeout( //2 sec delay to load before trying to run
                 window.frames[0].API.Frame.check();
                 window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one again
                 $("span#btnCheck").click(); //dont think it works
-            }
-        })
+    			})
         buildMenuButton("Toggle Console", "consolebutton", function() {
             $("#consolediv").toggle()
         })
