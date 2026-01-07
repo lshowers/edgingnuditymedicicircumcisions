@@ -476,7 +476,7 @@ function GuessPractice() {
 //        } catch (TypeError) {}
 //    } else {
 //        output += ("Guess Practice (not supported for  " + $("#activity-title").text() + "), ")
-//    }
+    }
 }
 
 // Unhide Right Column
