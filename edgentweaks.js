@@ -477,7 +477,7 @@ function GuessPractice() {
     } catch (TypeError) {} //Advance to next !!!!assignment!!! not redundant
     $("#stageFrame").contents().find(".FrameRight").click()
           $("iframe").contents().find("#SubmitButton").click()
-	}
+	}}
         //submitter
 //        try {
 //            $("#nextQuestion").click()
