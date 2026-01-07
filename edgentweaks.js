@@ -338,7 +338,7 @@ setTimeout( //2 sec delay to load before trying to run
     			})
         buildMenuButton("Toggle Console", "consolebutton", function() {
             $("#consolediv").toggle()
-        })
+		})
 
         //Panes
         RenderPane("EdgenTweaks", "tweaksmenu", "40%", "40%", "") //make tweaksmenu base
@@ -469,7 +469,7 @@ function GuessPractice() {
             window.options = window.frames[0].frames[0].document.getElementsByClassName("answer-choice-button"); //find options
             console.log(window.options.tostring())
             window.options[Math.floor(Math.random() * window.options.length)].click(); //click a random one
-    
+	}}
         //submitter
 //        try {
 //            $("#nextQuestion").click()
@@ -477,7 +477,7 @@ function GuessPractice() {
 //    } else {
 //        output += ("Guess Practice (not supported for  " + $("#activity-title").text() + "), ")
 //    }
-}
+
 
 // Unhide Right Column
 function showColumn() {
