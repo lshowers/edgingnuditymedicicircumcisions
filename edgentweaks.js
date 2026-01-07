@@ -392,6 +392,28 @@ setTimeout( //2 sec delay to load before trying to run
 
 
 //!!!!!!!!!!!!!!!!!!!!!!! BEGIN TWEAKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+function waitForNextAndAdvance(timeout = 3000) {
+    const start = Date.now();
+    const interval = setInterval(() => {
+        try {
+            const nextBtn = $("#stageFrame")
+                .contents()
+                .find(".FrameRight:not(.disabled)");
+
+            if (nextBtn.length) {
+                nextBtn.click();
+                clearInterval(interval);
+            }
+
+            if (Date.now() - start > timeout) {
+                clearInterval(interval);
+            }
+        } catch {}
+    }, 250);
+}		
+		
+		
 // Auto Advance
 function autoadvance() {
     var increment = 0;
@@ -477,7 +499,14 @@ function GuessPractice() {
     } catch (TypeError) {} //Advance to next !!!!assignment!!! not redundant
     $("#stageFrame").contents().find(".FrameRight").click()
           $("iframe").contents().find("#SubmitButton").click()
-	}}
+	}
+window.frames[0].API.Frame.check();
+$("span#btnCheck").click();
+
+// wait for grading → then go forward
+waitForNextAndAdvance();
+
+}
         //submitter
 //        try {
 //            $("#nextQuestion").click()
