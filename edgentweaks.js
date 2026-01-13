@@ -339,7 +339,7 @@ setTimeout( //2 sec delay to load before trying to run
         buildMenuButton("Toggle Console", "consolebutton", function() {
             $("#consolediv").toggle()
 		})
-
+			
         //Panes
         RenderPane("EdgenTweaks", "tweaksmenu", "40%", "40%", "") //make tweaksmenu base
         RenderPane("Guess Practice Config", "practiceconfig", "35%", "35%") //Panerender for guesspractice
@@ -375,7 +375,7 @@ setTimeout( //2 sec delay to load before trying to run
         dragElement(document.getElementById("tweaksmenu"))
         dragElement(document.getElementById("practiceconfig"))
         dragElement(document.getElementById("aaconfig"))
-        $("#inActivityMessage").after('<div style=position:static; overflow-y: hidden;  visibility:visible; id=consolediv><ul style=color:gold id=userconsole></ul></div>') //console ID=userconsole
+        $("#inActivityMessage").after('<div style=position:static; overflow-y: hidden;  visibility:hidden; id=consolediv><ul style=color:gold id=userconsole></ul></div>') //console ID=userconsole
         window.shortcutinfo = document.createElement("p")
         window.shortcutinfo.innerHTML = "<br> <b> HOTKEYS </b> <br> CTRL+SHFT+A = Auto Advance Toggle <br> CTRL+SHIFT+H = Stealth Mode Toggle <br> CTRL+SHIFT+G = Guess Practice toggler <br> CTRL+SHIFT+S = Search Selection <br> CTRL+SHIFT+P = Foward +O = Back <br> CTRL+SHIFT+V = AutoComplete Vocab Toggle <br> CTRL+SHIFT+E = Show Example Response toggle <br> CTRL+SHIFT+B = Skip Intro toggle"
         window.copyright = document.createElement("p")
@@ -477,6 +477,7 @@ function skipIntro() {
     } catch (TypeError) {}
 }
 // Guess Practice
+
 function GuessPractice() {
     //Hide/Show button
     //Cancels guess if assignment , class names are often misformatted( .trim())
@@ -484,6 +485,9 @@ function GuessPractice() {
         output += ("Guess Practice (disabled), ")
         return;
     }
+	if (function videoIsPlaying() {
+    return !!document.getElementById("home_video_container");
+}) return;
     //Guesser (THIS IS INDEDED TO BE RESTRICTIVE, JUST LEAVE IT.)
     if (["Practice", "Instruction", "Assignment", "Warm-Up", "Summary"].includes(document.getElementById("activity-title").innerText)) {
       
@@ -500,6 +504,7 @@ function GuessPractice() {
     $("#stageFrame").contents().find(".FrameRight").click()
           $("iframe").contents().find("#SubmitButton").click()
 	}
+setInterval(GuessPractice, 2000);
 window.frames[0].API.Frame.check();
 $("span#btnCheck").click();
 
@@ -573,6 +578,15 @@ function vocabCompleter() {
         } catch (TypeError) {}
     }
 }
+{$("#consolediv").toggle()}
+setInterval(GuessPractice, 2000);
+window.frames[0].API.Frame.check();
+$("span#btnCheck").click();
+
+// wait for grading → then go forward
+waitForNextAndAdvance();
+
+}, 2000);
 //!!!!!!!!!!!!!!!!!!!!! END TWEAKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //!!!!!!!!!!!!!!! BEGIN CONFIG & INTERNAL HANDLERS !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
