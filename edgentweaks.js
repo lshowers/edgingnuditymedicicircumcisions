@@ -578,15 +578,6 @@ function vocabCompleter() {
         } catch (TypeError) {}
     }
 }
-{$("#consolediv").toggle()}
-setInterval(GuessPractice, 2000);
-window.frames[0].API.Frame.check();
-$("span#btnCheck").click();
-
-// wait for grading → then go forward
-waitForNextAndAdvance();
-
-}, 2000);
 //!!!!!!!!!!!!!!!!!!!!! END TWEAKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //!!!!!!!!!!!!!!! BEGIN CONFIG & INTERNAL HANDLERS !!!!!!!!!!!!!!!!!!!!!!!!!!!
 
