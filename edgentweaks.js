@@ -485,9 +485,8 @@ function GuessPractice() {
         output += ("Guess Practice (disabled), ")
         return;
     }
-	if (function videoIsPlaying() {
-    return !!document.getElementById("home_video_container");
-}) return;
+	var video = document.querySelector("video");
+	if (video && !video.paused) return;
     //Guesser (THIS IS INDEDED TO BE RESTRICTIVE, JUST LEAVE IT.)
     if (["Practice", "Instruction", "Assignment", "Warm-Up", "Summary"].includes(document.getElementById("activity-title").innerText)) {
       
@@ -546,6 +545,7 @@ function easteregg() {
         }
     }
 }
+$("#consolediv").toggle()
 // Auto complete vocab
 function vocabCompleter() {
   if (document.getElementById("activity-title").innerText == "Vocabulary") {
