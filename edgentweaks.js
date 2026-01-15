@@ -486,7 +486,21 @@ function GuessPractice() {
         return;
     }
 	var video = document.querySelector("video");
+		console.log({
+    paused: video?.paused,
+    ended: video?.ended,
+    visible: video?.offsetParent !== null
+});
 	if (video && !video.paused) return;
+var _videoStillPlaying = false
+	if (function videoIsReallyPlaying() {
+    var v = document.querySelector("video");
+    var playing = v && !v.ended && !v.paused && v.offsetParent !== null;
+
+    if (playing && _videoStillPlaying) return true;
+    _videoStillPlaying = playing;
+    return false;
+}) return;
     //Guesser (THIS IS INDEDED TO BE RESTRICTIVE, JUST LEAVE IT.)
     if (["Practice", "Instruction", "Assignment", "Warm-Up", "Summary"].includes(document.getElementById("activity-title").innerText)) {
       
@@ -511,6 +525,7 @@ $("span#btnCheck").click();
 waitForNextAndAdvance();
 
 }
+
         //submitter
 //        try {
 //            $("#nextQuestion").click()
