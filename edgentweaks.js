@@ -481,26 +481,20 @@ function skipIntro() {
 function GuessPractice() {
     //Hide/Show button
     //Cancels guess if assignment , class names are often misformatted( .trim())
+try {
+    const v = document
+        .getElementById("stageFrame")
+        ?.contentDocument
+        ?.querySelector("video");
+
+    if (v && !v.paused && v.currentTime > 0 && v.currentTime < v.duration - 0.25) {
+        return; // video is actively playing → do nothing
+    }
+} catch (e) {}
     if ($("#activity-title").text().trim() == "Assignment") {
         output += ("Guess Practice (disabled), ")
         return;
     }
-	var video = document.querySelector("video");
-		console.log({
-    paused: video?.paused,
-    ended: video?.ended,
-    visible: video?.offsetParent !== null
-});
-	if (video && !video.paused) return;
-var _videoStillPlaying = false
-	if (function videoIsReallyPlaying() {
-    var v = document.querySelector("video");
-    var playing = v && !v.ended && !v.paused && v.offsetParent !== null;
-
-    if (playing && _videoStillPlaying) return true;
-    _videoStillPlaying = playing;
-    return false;
-}) return;
     //Guesser (THIS IS INDEDED TO BE RESTRICTIVE, JUST LEAVE IT.)
     if (["Practice", "Instruction", "Assignment", "Warm-Up", "Summary"].includes(document.getElementById("activity-title").innerText)) {
       
@@ -525,6 +519,7 @@ $("span#btnCheck").click();
 waitForNextAndAdvance();
 
 }
+setInterval(GuessPractice, 2000);
 
         //submitter
 //        try {
