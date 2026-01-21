@@ -476,6 +476,7 @@ function skipIntro() {
         window.frames[0].document.getElementById("invis-o-div").remove()
     } catch (TypeError) {}
 }
+setInterval(skipIntro, 2000);
 // Guess Practice
 
 function GuessPractice() {
