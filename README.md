@@ -1,4 +1,4 @@
-To use the fully optimized and minimized bookmarklet (best for slow chromebooks), simply make a bookmark and paste the [edgentweaks-OPTIMIZED-minimizedforbookmarklet.js](/edgentweaks-OPTIMIZED-minimizedforbookmarklet.js) file in the URL or drag [medici 3](/edgentweaks-OPTIMIZED-minimizedforbookmarklet.js) into your bookmarks bar.
+To use the fully optimized and minimized bookmarklet (best for slow chromebooks), simply make a bookmark and paste the contents of [edgentweaks-OPTIMIZED-minimizedforbookmarklet.js](/edgentweaks-OPTIMIZED-minimizedforbookmarklet.js) in the URL or drag [medici 3](https://raw.githubusercontent.com/lshowers/edgingnuditymedicicircumcisions/refs/heads/main/edgentweaks-OPTIMIZED-minimizedforbookmarklet.js) into your bookmarks bar.
   
   
 EdgenuityAuto - no config panel: automatically skips videos on Edgenuity and sends notifications when a quiz pops up.  
