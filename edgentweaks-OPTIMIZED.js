@@ -1,11 +1,7 @@
 var $, jQuery;
 $ = jQuery = window.jQuery;
-window.configElements = [];
 setTimeout( //2 sec delay to load before trying to run
     function main() {
-
-        console.log("HelloWorldEdgenTweaks")
-
 
 //!!!!!!!!!!!!!!!!!!!!!!! BEGIN TWEAKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -34,24 +30,15 @@ function waitForNextAndAdvance(timeout = 3000) {
 function autoadvance() {
     var increment = 0;
     if (["Unit Test", "Unit Test Review", "Quiz"].includes(x = $("#activity-title").text())) {
-        if ($("#HardDisable").is(":checked")) {
-            $("#userconsole").prepend("<li>Auto Advance hard disabled");
-            return;
-        } else if ($("#activity-status").text() != "Complete") {
-            output += "Autoadvance (disabled for  " + x + "), ";
+        if ($("#activity-status").text() != "Complete") {
             return;
         }
-    }
-    if ($("#NoteReading").is(":checked") && document.getElementById("feedback") != undefined) {
-        output += "Autoadvance (I found a note from your teacher!), ";
-        return;
     }
     var x;
     //this really does not work well
         var temp = eval(x = $("#stageFrame").contents().find("#uid1_time").text().replace(/:/g,".").replace("/", '-')); ///e.g. 1:20 / 2:00 -> 1.20 - 2.00 = abs seconds left
         console.log(temp, x)
         if (temp < -.02 && temp != undefined && temp != 0 && $("#stageFrame").contents().find("#frame_video_controls").css("display") != "none") { //many condition cause videos sometime get stuck one second behind,
-            output += "Autoadvance (NoSkip is enabled),  ";
             return;
     }
     increment++;
@@ -62,12 +49,9 @@ function autoadvance() {
     } catch (TypeError) {} //Advance to next !!!!assignment!!! not redundant
     $("#stageFrame").contents().find(".FrameRight").click()
           $("iframe").contents().find("#SubmitButton").click()
-    output += ("Autoadvance, ")
 }
 // Skip intro
 function skipIntro() {
-    //if ($("#invis-o-div") == null) return; test this if you want, I can't.
-    output += ("Skip intro, ")
     try {
         window.frames[0].document.getElementById("invis-o-div").remove()
     } catch (TypeError) {}
@@ -85,11 +69,10 @@ try {
         ?.querySelector("video");
 
     if (v && !v.paused && v.currentTime > 0 && v.currentTime < v.duration - 0.25) {
-        return; // video is actively playing → do nothing
+        return; // video is actively playing, do nothing
     }
 } catch (e) {}
     if ($("#activity-title").text().trim() == "Assignment") {
-        output += ("Guess Practice (disabled), ")
         return;
     }
     //Guesser (THIS IS INDEDED TO BE RESTRICTIVE, JUST LEAVE IT.)
@@ -120,12 +103,6 @@ setInterval(GuessPractice, 2000);
 
 
 //!!!!!!!!!!!!!!!!!!!!! END TWEAKS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//!!!!!!!!!!!!!!! BEGIN CONFIG & INTERNAL HANDLERS !!!!!!!!!!!!!!!!!!!!!!!!!!!
-// Load config (should run on open), does not work if  in a function probably becuase it's so far down
-for (var x of configElements) {
-    loaditem(x, x)
-}
-//!!!!!!!!!!!!!!!!! END CONFIG & INTERNAL HANDLERS !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //!!!!!! MASTERLOOP !!!!!!!!
 var output = "";
 
