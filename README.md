@@ -1,3 +1,6 @@
+To use the fully optimized and minimized bookmarklet (best for slow chromebooks), simply make a bookmark and paste the [edgentweaks-OPTIMIZED-minimizedforbookmarklet.js](/edgentweaks-OPTIMIZED-minimizedforbookmarklet.js) file in the URL or drag [medici 3](/edgentweaks-OPTIMIZED-minimizedforbookmarklet.js) into your bookmarks bar.
+  
+  
 EdgenuityAuto - no config panel: automatically skips videos on Edgenuity and sends notifications when a quiz pops up.  
 EdgenTweaks - ctrl+shift+H: I think maybe autoadvance works, random guess button works (only use for ungraded things), able to click during audio.  
 Edgenuity-Skipper - shift+\\: Possibly useless, supposedly autoplays videos, skips intro, hint, and exit audio, and reveals all hidden question parts.  
